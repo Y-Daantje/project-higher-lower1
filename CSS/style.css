@@ -1,0 +1,281 @@
+:root {
+
+  --dice-color: deepskyblue;
+
+  --gamebtn-color: white;
+
+  --crdt-color: rgb(116, 148, 255);
+
+}
+
+body {
+  background-image: url(https://wallpapercave.com/uwp/uwp2687519.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+* {
+
+  font-family: cursive;
+
+}
+
+
+
+h1 {
+
+  color: goldenrod;
+
+}
+
+
+
+.text-center {
+
+  text-align: center;
+
+}
+
+.text{
+  color: antiquewhite;
+}
+
+.headings {
+
+  padding: 10px;
+
+  column-count: 5;
+
+  column-fill: balance;
+
+  color: goldenrod;
+
+}
+
+
+
+.dices {
+
+  padding: 10px;
+
+  column-count: 5;
+
+  column-fill: balance;
+
+}
+
+
+
+.dices-computer-player {
+
+  padding: 10px;
+
+  column-count: 5;
+
+  column-fill: balance;
+
+  color: var(--dice-color);
+
+}
+
+
+
+.dices-player {
+
+  padding: 10px;
+
+  column-count: 5;
+
+  column-fill: balance;
+
+  color: var(--dice-color);
+
+}
+
+
+
+.dice {
+
+  font-size: 70pt;
+
+}
+
+
+
+.js-higher-btn {
+
+  padding: 25px;
+
+  padding-right: 100px;
+
+  padding-left: 100px;
+
+  margin-left: 20%;
+
+  border: 5px solid;
+
+  border-radius: 20px;
+
+  color: var(--gamebtn-color);
+
+  background-color: gray;
+
+  font-weight: bolder;
+
+  box-shadow: 0 6px black;
+
+  cursor: pointer;
+
+}
+
+
+
+.js-lower-btn {
+
+  padding: 25px;
+
+  padding-right: 100px;
+
+  padding-left: 100px;
+
+  margin-left: 27%;
+
+  border: 5px solid;
+
+  border-radius: 20px;
+
+  color: var(--gamebtn-color);
+
+  background-color: gray;
+
+  font-weight: bolder;
+
+  box-shadow: 0 6px black;
+
+  cursor: pointer;
+
+}
+
+
+
+.js-start-btn {
+
+  padding: 25px;
+
+  padding-right: 100px;
+
+  padding-left: 100px;
+
+  margin-left: 25%;
+
+  margin-right: 100;
+
+  margin-top: 5%;
+
+  border: 5px solid;
+
+  border-radius: 20px;
+
+  background-color: lightblue;
+
+  font-weight: bolder;
+
+  box-shadow: 0 5px black;
+
+  cursor: pointer;
+
+  columns: 2;
+}
+
+.js-roll-btn {
+
+  padding: 25px;
+
+  padding-right: 90px;
+
+  padding-left: 90px;
+
+  margin-left: 340px;
+
+  margin-top: 5%;
+
+  border: 5px solid;
+
+  border-radius: 20px;
+
+  background-color: lightblue;
+
+  font-weight: bolder;
+
+  box-shadow: 0 5px black;
+
+  cursor: pointer;
+
+  columns: 2;
+}
+
+
+
+.credits1 {
+
+  text-decoration: underline;
+
+  color: var(--crdt-color);
+
+  margin-left: 1.2%;
+
+  margin-top: -1%;
+
+}
+
+
+
+.credits2 {
+
+  text-decoration: underline;
+
+  color: var(--crdt-color);
+
+  margin-left: 94.2%;
+
+  margin-top: -2.6%;
+
+}
+
+
+
+.creditBorder {
+
+  background-color: lightblue;
+
+  border: 5px solid;
+
+  border-radius: 20px;
+
+  margin-top: -1%;
+
+  width: 78px;
+
+  padding: 20px;
+
+}
+
+
+
+.creditBorder1 {
+
+  background-color: lightblue;
+
+  border: 5px solid;
+
+  border-radius: 20px;
+
+  margin-top: -5.7%;
+
+  margin-left: 93%;
+
+  width: 78px;
+
+  padding: 20px;
+
+}

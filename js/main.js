@@ -22,6 +22,7 @@ const startBtn = document.querySelector(".startBtn");
 const btnDice = document.querySelector(".dices");
 const higherBtn = document.querySelector(".js-higher-btn");
 const lowerBtn = document.querySelector(".js-lower-btn");
+const rollBtn = document.querySelector(".js-roll-btn");
 const textparagraph = document.querySelector(".text");
 const compDiceElement1 = document.querySelector(".computer-dice-one");
 const compDiceElement2 = document.querySelector(".computer-dice-two");
@@ -71,29 +72,41 @@ startBtn.addEventListener('click', function () {
   startBtn.disabled = true;
   //then the dice btn is enable
   btnDice.disabled = false;
-})
+});
 
-btnDice.addEventListener('.click', function () {
+rollBtn.addEventListener('click', function () {
+  // Simulate rolling two dice and getting random values (1-6)
+  const diceValue1 = getRandomInt(6) + 1;
+  const diceValue2 = getRandomInt(6) + 1;
+
+  // Update the UI to display the dice values
+  const diceElement1 = document.querySelector(".player-dice-one");
+  const diceElement2 = document.querySelector(".player-dice-two");
+
+  diceElement1.innerHTML = diceArray[diceValue1 - 1];
+  diceElement2.innerHTML = diceArray[diceValue2 - 1];
+});
+
+btnDice.addEventListener('click', function () {
   if (computerTurn) {
-    compdice1 = getRandomInt(6);
-    compdice2 = getRandomInt(6);
+    computerDice1 = getRandomInt(6);
+    computerDice2 = getRandomInt(6);
 
-    compDiceElement1.innerHTML = diceArray[compdice1];
-    compDiceElement2.innerHTML = diceArray[compdice2];
+    compDiceElement1.innerHTML = diceArray[computerDice1];
+    compDiceElement2.innerHTML = diceArray[computerDice2];
 
-    textparagraph.textContent = 'computer threw ,choose higher or lower.';
+    textparagraph.textContent = 'Computer threw, choose higher or lower.';
 
     higherBtn.disabled = false;
     lowerBtn.disabled = false;
     btnDice.disabled = true;
-  }
-
-  if (!computerTurn) {
+  } else {
     playerDice1 = getRandomInt(6);
     playerDice2 = getRandomInt(6);
 
     playDiceElement1.innerHTML = diceArray[playerDice1];
     playDiceElement2.innerHTML = diceArray[playerDice2];
+
     //if player chose higher ther player will get 2 points and compuetr will loose 1 point
     if (higher && computerDice1 + computerDice2 < playerDice1 + playerDice2) {
       textparagraph.textContent = 'you have choosen higher,  You won!';
@@ -119,13 +132,6 @@ btnDice.addEventListener('.click', function () {
     if (computerDice1 + computerDice2 == playerDice1 + playerDice2) {
       textparagraph.textContent = "It's a tie! No one wins.";
     }
-    compCreditsElement.textContent = computerCredits
-    playerCreditsElement.textContent = playerCredits
-    btnDice.disabled = true;
-    higherBtn.disabled = true;
-    lowerBtn.disabled = true;
-    startBtn.disabled = false;
-    computerTurn = true;
 
     if (computerCredits <= 0) {
       textparagraph.textContent = 'computer has no more credits, you won resart game!';
@@ -135,6 +141,13 @@ btnDice.addEventListener('.click', function () {
       textparagraph.textContent = 'you have no more credits, restart the game!';
       gameOver = true;
     }
+    compCreditsElement.textContent = computerCredits;
+    playCreditsElement.textContent = playerCredits;
+    btnDice.disabled = true;
+    higherBtn.disabled = true;
+    lowerBtn.disabled = true;
+    startBtn.disabled = false;
+    computerTurn = true;
   }
 });
 
@@ -147,6 +160,6 @@ lowerBtn.addEventListener('click', function () {
   higher = false;
 });
 
-function random(top) {
-  return Math.floor(Math.random() * top);
-}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+};

@@ -35,7 +35,7 @@ const playCreditsElement = document.querySelector(".credits2");
 let computerDice1 = 0;
 let computerDice2 = 0;
 
-//and hare you set the same for the player dice
+//and here you set the same for the player dice
 let playerDice1 = 0;
 let playerDice2 = 0;
 
@@ -74,6 +74,11 @@ startBtn.addEventListener('click', function () {
   btnDice.disabled = false;
 });
 
+// Function to switch the turn to the other player
+function switchTurn() {
+  currentPlayer = currentPlayer === "player" ? "computer" : "player";
+}
+
 rollBtn.addEventListener('click', function () {
   // Simulate rolling two dice and getting random values (1-6)
   const diceValue1 = getRandomInt(6) + 1;
@@ -87,22 +92,24 @@ rollBtn.addEventListener('click', function () {
   diceElement2.innerHTML = diceArray[diceValue2 - 1];
 });
 
+// Function to handle the roll button being clicked
 btnDice.addEventListener('click', function () {
   if (computerTurn) {
     computerDice1 = getRandomInt(6);
     computerDice2 = getRandomInt(6);
-
+    
     compDiceElement1.innerHTML = diceArray[computerDice1];
     compDiceElement2.innerHTML = diceArray[computerDice2];
-
+    
     textparagraph.textContent = 'Computer threw, choose higher or lower.';
-
+    
     higherBtn.disabled = false;
     lowerBtn.disabled = false;
     btnDice.disabled = true;
   } else {
     playerDice1 = getRandomInt(6);
     playerDice2 = getRandomInt(6);
+
 
     playDiceElement1.innerHTML = diceArray[playerDice1];
     playDiceElement2.innerHTML = diceArray[playerDice2];

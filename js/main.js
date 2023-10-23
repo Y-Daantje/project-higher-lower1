@@ -45,7 +45,7 @@ let computerTurn = true;
 let higher = false;
 
 //make a line code for when the btn have to be active or be disable
-btnDice.disabled = true;
+
 higherBtn.disabled = true;
 lowerBtn.disabled = true;
 startBtn.disabled = false;
@@ -69,8 +69,6 @@ startBtn.addEventListener('click', function () {
   textparagraph.textContent = 'New Game.';
   //after you click on the start btn it goes disable
   startBtn.disabled = true;
-  //then the dice btn is enable
-  btnDice.disabled = false;
 });
 
 
@@ -147,7 +145,6 @@ lowerBtn.addEventListener('click', function () {
   textparagraph.textContent = 'you chooce lower';
   higherBtn.disabled = true;
   lowerBtn.disabled = true;
-
   computerTurn = false;
   higher = true;
 });
@@ -156,7 +153,6 @@ higherBtn.addEventListener('click', function () {
   textparagraph.textContent = 'you chooce higher';
   higherBtn.disabled = true;
   lowerBtn.disabled = true;
-
   computerTurn = false;
   higher = true;
 });

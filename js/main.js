@@ -19,7 +19,6 @@ let gameOver = false;
 
 //quary selector for all btn action that would want in prgram
 const startBtn = document.querySelector(".startBtn");
-const btnDice = document.querySelector(".dices");
 const higherBtn = document.querySelector(".js-higher-btn");
 const lowerBtn = document.querySelector(".js-lower-btn");
 const rollBtn = document.querySelector(".js-roll-btn");
@@ -78,17 +77,17 @@ startBtn.addEventListener('click', function () {
 rollBtn.addEventListener('click', function () {
 
 
-// Function to handle the roll button being clicked
+  // Function to handle the roll button being clicked
 
   if (computerTurn) {
     computerDice1 = getRandomInt(6);
     computerDice2 = getRandomInt(6);
-    
+
     compDiceElement1.innerHTML = diceArray[computerDice1];
     compDiceElement2.innerHTML = diceArray[computerDice2];
-    
+
     textparagraph.textContent = 'Computer threw, choose higher or lower.';
-    
+
     higherBtn.disabled = false;
     lowerBtn.disabled = false;
     btnDice.disabled = true;
@@ -136,7 +135,7 @@ rollBtn.addEventListener('click', function () {
     }
     compCreditsElement.textContent = computerCredits;
     playCreditsElement.textContent = playerCredits;
-    
+
     higherBtn.disabled = true;
     lowerBtn.disabled = true;
     startBtn.disabled = false;
@@ -148,7 +147,7 @@ lowerBtn.addEventListener('click', function () {
   textparagraph.textContent = 'you chooce lower';
   higherBtn.disabled = true;
   lowerBtn.disabled = true;
-  
+
   computerTurn = false;
   higher = true;
 });
@@ -157,7 +156,7 @@ higherBtn.addEventListener('click', function () {
   textparagraph.textContent = 'you chooce higher';
   higherBtn.disabled = true;
   lowerBtn.disabled = true;
-  
+
   computerTurn = false;
   higher = true;
 });

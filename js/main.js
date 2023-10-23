@@ -74,26 +74,12 @@ startBtn.addEventListener('click', function () {
   btnDice.disabled = false;
 });
 
-// Function to switch the turn to the other player
-function switchTurn() {
-  currentPlayer = currentPlayer === "player" ? "computer" : "player";
-}
 
 rollBtn.addEventListener('click', function () {
-  // Simulate rolling two dice and getting random values (1-6)
-  const diceValue1 = getRandomInt(6) + 1;
-  const diceValue2 = getRandomInt(6) + 1;
 
-  // Update the UI to display the dice values
-  const diceElement1 = document.querySelector(".player-dice-one");
-  const diceElement2 = document.querySelector(".player-dice-two");
-
-  diceElement1.innerHTML = diceArray[diceValue1 - 1];
-  diceElement2.innerHTML = diceArray[diceValue2 - 1];
-});
 
 // Function to handle the roll button being clicked
-btnDice.addEventListener('click', function () {
+
   if (computerTurn) {
     computerDice1 = getRandomInt(6);
     computerDice2 = getRandomInt(6);
@@ -125,12 +111,12 @@ btnDice.addEventListener('click', function () {
       computerCredits = computerCredits + 2;
       playerCredits = playerCredits - 2;
     }
-    if (lower && computerDice1 + computerDice2 > playerDice1 + playerDice2) {
+    if (!higher && computerDice1 + computerDice2 > playerDice1 + playerDice2) {
       textparagraph.textContent = 'You have chosen lower,  You won!';
       playerCredits = playerCredits + 2;
       computerCredits = computerCredits - 2;
     }
-    if (lower && computerDice1 + computerDice2 < playerDice1 + playerDice2) {
+    if (!higher && computerDice1 + computerDice2 < playerDice1 + playerDice2) {
       textparagraph.textContent = 'You have chosen lower,  you lost!';
       computerCredits = computerCredits + 2;
       playerCredits = playerCredits - 2;
@@ -150,7 +136,7 @@ btnDice.addEventListener('click', function () {
     }
     compCreditsElement.textContent = computerCredits;
     playCreditsElement.textContent = playerCredits;
-    btnDice.disabled = true;
+    
     higherBtn.disabled = true;
     lowerBtn.disabled = true;
     startBtn.disabled = false;
@@ -162,9 +148,18 @@ lowerBtn.addEventListener('click', function () {
   textparagraph.textContent = 'you chooce lower';
   higherBtn.disabled = true;
   lowerBtn.disabled = true;
-  btnDice.disabled = false;
+  
   computerTurn = false;
-  higher = false;
+  higher = true;
+});
+
+higherBtn.addEventListener('click', function () {
+  textparagraph.textContent = 'you chooce higher';
+  higherBtn.disabled = true;
+  lowerBtn.disabled = true;
+  
+  computerTurn = false;
+  higher = true;
 });
 
 function getRandomInt(max) {
